@@ -10,7 +10,7 @@ public class TestCalc {
     }
 
     @Test
-    public void testCalcAsin1() {
+    public void asinPointFiveTest() {
 
         Calc tester = new Calc();
         try {
@@ -21,9 +21,34 @@ public class TestCalc {
             System.out.println("Error: " + e);
         }
     }
+    @Test
+    public void asinPointFiveSecondTest() {
+
+        Calc tester = new Calc();
+        try {
+            final double EPS = 1.0e-4;
+            assertTrue("TEST 1. asin(0.6) = 0.643501", EPS_Equals(0.643501, tester.arcsin(0.6), EPS));
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
 
     @Test
-    public void testCalcAsin2() {
+    public void asinMinusPointFiveSecondTest() {
+
+        Calc tester = new Calc();
+        try {
+            final double EPS = 1.0e-4;
+            assertTrue("TEST 1. asin(-0.6) = -0.643501", EPS_Equals(-0.643501, tester.arcsin(-0.6), EPS));
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+
+    @Test
+    public void asinMinPointFiveTest() {
 
         Calc tester = new Calc();
         try {
@@ -36,7 +61,7 @@ public class TestCalc {
     }
 
     @Test
-    public void testCalcAsin3() {
+    public void asinZeroTest() {
 
         Calc tester = new Calc();
         try {
@@ -49,12 +74,12 @@ public class TestCalc {
     }
 
     @Test
-    public void testCalcAsin4() {
+    public void asinOneNumTest() {
 
         Calc tester = new Calc();
         try {
             final double EPS = 1.0e-5;
-            assertTrue("TEST 4. asin(1) = PI/2", EPS_Equals(Math.PI/2, tester.arcsin(1), EPS));
+            assertFalse("TEST 4. asin(1) = PI/2", EPS_Equals(Math.PI/2, tester.arcsin(1), EPS));
         }
         catch (Exception e){
             System.out.println("Error: " + e);
@@ -62,12 +87,12 @@ public class TestCalc {
     }
 
     @Test
-    public void testCalcAsin5() {
+    public void asinMinusOneNumTest() {
 
         Calc tester = new Calc();
         try {
             final double EPS = 1.0e-5;
-            assertTrue("TEST 5. asin(-1) = -PI/2", EPS_Equals(-Math.PI/2, tester.arcsin(-1), EPS));
+            assertFalse("TEST 5. asin(-1) = -PI/2", EPS_Equals(-Math.PI/2, tester.arcsin(-1), EPS));
         }
         catch (Exception e){
             System.out.println("Error: " + e);
@@ -75,12 +100,12 @@ public class TestCalc {
     }
 
     @Test
-    public void testCalcAsin6() {
+    public void asinOverMinusOneNumTest() {
 
         Calc tester = new Calc();
         try {
             final double EPS = 1.0e-5;
-            assertTrue("TEST 6. asin(0.8) = 0.926232", EPS_Equals(0.926232, tester.arcsin(0.8), EPS));
+            assertFalse("TEST 5. asin(-1.1) = ERR", EPS_Equals(-Math.PI/2, tester.arcsin(-1.1), EPS));
         }
         catch (Exception e){
             System.out.println("Error: " + e);
@@ -88,12 +113,12 @@ public class TestCalc {
     }
 
     @Test
-    public void testCalcAsin7() {
+    public void asinOverOneNumTest() {
 
         Calc tester = new Calc();
         try {
             final double EPS = 1.0e-5;
-            assertTrue("TEST 7. asin(-0.8) = -0.926232", EPS_Equals(-0.926232, tester.arcsin(-0.8), EPS));
+            assertFalse("TEST 5. asin(1.1) = ERR", EPS_Equals(-Math.PI/2, tester.arcsin(1.1), EPS));
         }
         catch (Exception e){
             System.out.println("Error: " + e);
@@ -101,12 +126,129 @@ public class TestCalc {
     }
 
     @Test
-    public void testCalcAsin8() {
+    public void asinBeforeOneNumTest() {
+
+        Calc tester = new Calc();
+        try {
+            final double EPS = 1.0e-5;
+            assertFalse("TEST 5. asin(0.95) = ERR", EPS_Equals(1.253235, tester.arcsin(0.95), EPS));
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+
+    @Test
+    public void asinBeforeMinusOneNumTest() {
+
+        Calc tester = new Calc();
+        try {
+            final double EPS = 1.0e-5;
+            assertFalse("TEST 5. asin(-0.95) = ERR", EPS_Equals(-1.253235, tester.arcsin(-0.95), EPS));
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+
+    @Test
+    public void asinPointEightTest() {
+
+        Calc tester = new Calc();
+        try {
+            final double EPS = 1.0e-5;
+            assertFalse("TEST 6. asin(0.8) = 0.927295", EPS_Equals(0.927295, tester.arcsin(0.8), EPS));
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+
+    @Test
+    public void asinMinusPointEightTest() {
+
+        Calc tester = new Calc();
+        try {
+            final double EPS = 1.0e-5;
+            assertFalse("TEST 7. asin(-0.8) = -0.927295", EPS_Equals(-0.927295, tester.arcsin(-0.8), EPS));
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+
+    @Test
+    public void asinAfterZeroTest() {
 
         Calc tester = new Calc();
         try {
             final double EPS = 1.0e-5;
             assertTrue("TEST 8. asin(0.3) = 0.304693", EPS_Equals(0.304693, tester.arcsin(0.3), EPS));
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+
+    @Test
+    public void asinBeforeZeroTest() {
+
+        Calc tester = new Calc();
+        try {
+            final double EPS = 1.0e-5;
+            assertTrue("TEST 8. asin(-0.3) = -0.304693", EPS_Equals(-0.304693, tester.arcsin(-0.3), EPS));
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+
+    @Test
+    public void asinBeforePointEightTest() {
+
+        Calc tester = new Calc();
+        try {
+            final double EPS = 1.0e-5;
+            assertFalse("TEST 6. asin(0.7) = 0.775397", EPS_Equals(0.775397, tester.arcsin(0.7), EPS));
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+
+    @Test
+    public void asinBeforeMinusPointEightTest() {
+
+        Calc tester = new Calc();
+        try {
+            final double EPS = 1.0e-5;
+            assertFalse("TEST 6. asin(-0.7) = -0.775397", EPS_Equals(-0.775397, tester.arcsin(-0.7), EPS));
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+
+    @Test
+    public void asinAfterPointEightTest() {
+
+        Calc tester = new Calc();
+        try {
+            final double EPS = 1.0e-5;
+            assertFalse("TEST 6. asin(0.85) = 1.015985", EPS_Equals(1.015985, tester.arcsin(0.85), EPS));
+        }
+        catch (Exception e){
+            System.out.println("Error: " + e);
+        }
+    }
+
+    @Test
+    public void asinAfterMinusPointEightTest() {
+
+        Calc tester = new Calc();
+        try {
+            final double EPS = 1.0e-5;
+            assertFalse("TEST 6. asin(-0.85) = -1.015985", EPS_Equals(-1.015985, tester.arcsin(-0.85), EPS));
         }
         catch (Exception e){
             System.out.println("Error: " + e);

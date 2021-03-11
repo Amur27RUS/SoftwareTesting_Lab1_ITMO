@@ -47,27 +47,6 @@ public class TestForAlgo {
     }
 
     @Test
-    public void startFromTwo() {
-        int[] correctValues = { 2, 4, 1, 6, 5  };
-        graph.DFS(2);
-        testMatch(correctValues);
-    }
-
-    @Test
-    public void startFromThree() {
-        int[] correctValues = { 3, 2, 4, 1, 6, 5 };
-        graph.DFS(3);
-        testMatch(correctValues);
-    }
-
-    @Test
-    public void startFromFour() {
-        int[] correctValues = { 4, 1, 6, 5 };
-        graph.DFS(4);
-        testMatch(correctValues);
-    }
-
-    @Test
     public void startFromFive() {
         int[] correctValues = { 5 };
         graph.DFS(5);
@@ -75,10 +54,30 @@ public class TestForAlgo {
     }
 
     @Test
-    public void startFromSix() {
-        int[] correctValues = { 6, 4, 1, 5  };
-        graph.DFS(6);
-        testMatch(correctValues);
+    public void graphWithOneElemTest(){
+        int[] correctValues = { 0 };
+        Graph g = new Graph(1);
+        g.addEdge(0, 0);
+        boolean expected = true;
+        ListIterator<Integer> ite = g.getVisitedVerts().listIterator();
+        while (ite.hasNext() && expected) {
+            expected = (correctValues[ite.nextIndex()] == ite.next());
+        }
+        assertTrue(expected);
     }
+
+    @Test
+    public void graphWithZeroElemTest(){
+        int[] correctValues = { 0 };
+        Graph g = new Graph(0);
+        boolean expected = true;
+        ListIterator<Integer> ite = g.getVisitedVerts().listIterator();
+        while (ite.hasNext() && expected) {
+            expected = (correctValues[ite.nextIndex()] == ite.next());
+        }
+        assertTrue(expected);
+    }
+
+
 
 }
